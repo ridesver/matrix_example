@@ -57,10 +57,10 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
 {
 	matrix_t result;
 	
-	if (rows_ == other.rows_ && collumns == other.collumns_) {
+	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 	  	result.elements_ = new float *[rows_];
 		for (std::size_t i = 0; i<collumns_; i++) {
-			matrix3.data[i] = new float [this->columns];
+			result.data[i] = new float [collumns_];
 		}
 		result.rows_ = rows_;
 		result.collumns_ = collumns_;
@@ -72,7 +72,7 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
 		}
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 
@@ -83,10 +83,10 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 {
 	matrix_t result;
 	
-	if (rows_ == other.rows_ && collumns == other.collumns_) {
+	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 	  	result.elements_ = new float *[rows_];
 		for (std::size_t i = 0; i<collumns_; i++) {
-			matrix3.data[i] = new float [this->columns];
+			result.data[i] = new float [collumns_];
 		}
 		result.rows_ = rows_;
 		result.collumns_ = collumns_;
@@ -98,7 +98,7 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 		}
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 
@@ -115,7 +115,7 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 			result.elements_[i] = new float [collumns_];
 	    }
 	    result.rows_ = other.rows_;
-	    result.collumns_ = columns_;
+	    result.collumns_ = collumns_;
 	    
 		for (unsigned int i = 0; i < rows_; ++i) {
 			for (std::size_t j = 0; j < other.collumns_; ++j) {
@@ -128,7 +128,7 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 		}
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 
@@ -145,7 +145,7 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 		}
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 	
@@ -154,7 +154,7 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 
 matrix_t & matrix_t::operator +=( matrix_t const & other )
 {
-	if (rows_ == other.rows_ && collumns == other.collumns_) {
+	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i<rows_; i++) {
 			for (std::size_t j = 0; j<collumns_; j++) {
 				elements_[i][j] += other.elements_[i][j];
@@ -162,7 +162,7 @@ matrix_t & matrix_t::operator +=( matrix_t const & other )
 		}
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 	
@@ -187,7 +187,7 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 		*this = result;
 	}
 	else {
-		cout << endl << "You can`t make this action";
+		std::cout << std::endl << "You can`t make this action";
 		exit(0);
 	}
 	
