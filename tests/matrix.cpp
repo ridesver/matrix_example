@@ -119,3 +119,80 @@ TEST_CASE("multiplying matrixs")
     
     REQUIRE( representation( result_matrix ) == expected_result_matrix_representation );
 }
+
+
+
+
+
+
+
+TEST_CASE("addings_2 matrixs")
+{
+    std::string first_matrix_representation{
+        "1, 3\n"
+        "1 1 1\n"
+    };
+    std::string second_matrix_representation{
+        "1, 3\n"
+        "1 1 1\n"
+    };
+    matrix_t first_matrix = matrix( first_matrix_representation );
+    matrix_t second_matrix = matrix( second_matrix_representation );
+    
+    matrix_t first_matrix += second_matrix;
+
+    std::string expected_result_matrix_representation{
+        "1, 3\n"
+        "2 2 2\n"
+    };
+    
+    REQUIRE( representation( first_matrix ) == expected_result_matrix_representation );
+}
+
+TEST_CASE("subtracting_2 matrixs")
+{
+    std::string first_matrix_representation{
+        "1, 3\n"
+        "1 1 1\n"
+    };
+    std::string second_matrix_representation{
+        "1, 3\n"
+        "1 1 1\n"
+    };
+    matrix_t first_matrix = matrix( first_matrix_representation );
+    matrix_t second_matrix = matrix( second_matrix_representation );
+    
+    matrix_t first_matrix -= second_matrix;
+
+    std::string expected_result_matrix_representation{
+        "1, 3\n"
+        "0 0 0\n"
+    };
+    
+    REQUIRE( representation( first_matrix ) == expected_result_matrix_representation );
+}
+
+TEST_CASE("multiplying_2 matrixs")
+{
+    std::string first_matrix_representation{
+        "1, 3\n"
+        "1 1 1\n"
+    };
+    std::string second_matrix_representation{
+        "3, 1\n"
+        "1\n"
+        "1\n"
+        "1\n"
+    };
+    matrix_t first_matrix = matrix( first_matrix_representation );
+    matrix_t second_matrix = matrix( second_matrix_representation );
+    
+    matrix_t first_matrix *= second_matrix;
+
+    std::string expected_result_matrix_representation{
+        "1, 1\n"
+        "3"
+    };
+    
+    REQUIRE( representation( first_matrix ) == expected_result_matrix_representation );
+}
