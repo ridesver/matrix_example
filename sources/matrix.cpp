@@ -243,18 +243,17 @@ std::istream & matrix_t::read( std::istream & stream )
 
 std::ostream & matrix_t::write( std::ostream & stream ) const
 {
-    stream << rows_ << ", " << collumns_ << stream << '\n';
+    stream << rows_ << ", " << collumns_;
     for( std::size_t i = 0; i < rows_; ++i ) {
+	stream << '\n';
         for( std::size_t j = 0; j < collumns_; ++j ) {
             stream << elements_[ i ][ j ];
             if( j != collumns_ - 1 ) {
                 stream << ' ';
             }
-	    else {
-		stream << '\n';    
-	    }
         }
     }
+    if (collumns_ != rows_) stream << '\n';
     
 	return stream;
 }
