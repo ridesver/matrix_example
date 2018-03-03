@@ -248,7 +248,7 @@ std::ostream & matrix_t::write( std::ostream & stream ) const
         stream << '\n';
         for( std::size_t j = 0; j < collumns_; ++j ) {
             stream << elements_[ i ][ j ];
-            if( j != rows_ - 1 ) {
+            if( j != collumns_ - 1 ) {
                 stream << ' ';
             }
         }
