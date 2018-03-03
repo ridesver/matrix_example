@@ -117,7 +117,7 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 	    result.rows_ = other.rows_;
 	    result.collumns_ = collumns_;
 	    
-		for (unsigned int i = 0; i < rows_; ++i) {
+		for (std::size_t i = 0; i < rows_; ++i) {
 			for (std::size_t j = 0; j < other.collumns_; ++j) {
 				int result_ = 0;
 				for (std::size_t k = 0; k < other.rows_; ++k) {
