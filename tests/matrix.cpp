@@ -190,3 +190,32 @@ TEST_CASE("multiplying_2 matrixs")
     
     REQUIRE( representation( first_matrix ) == expected_result_matrix_representation );
 }
+
+TEST_CASE("addings matrixs 3x1")
+{
+    std::string first_matrix_representation{
+        "3, 1\n"
+        "1\n"
+        "1\n"
+        "1\n"
+    };
+    std::string second_matrix_representation{
+        "3, 1\n"
+        "1\n"
+        "1\n"
+        "1\n"
+    };
+    matrix_t first_matrix = matrix( first_matrix_representation );
+    matrix_t second_matrix = matrix( second_matrix_representation );
+    
+    matrix_t result_matrix = first_matrix + second_matrix;
+
+    std::string expected_result_matrix_representation{
+        "3, 1\n"
+        "2\n"
+        "2\n"
+        "2\n"
+    };
+    
+    REQUIRE( representation( result_matrix ) == expected_result_matrix_representation );
+}
