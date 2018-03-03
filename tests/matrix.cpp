@@ -120,12 +120,6 @@ TEST_CASE("multiplying matrixs")
     REQUIRE( representation( result_matrix ) == expected_result_matrix_representation );
 }
 
-
-
-
-
-
-
 TEST_CASE("addings_2 matrixs")
 {
     std::string first_matrix_representation{
@@ -139,7 +133,7 @@ TEST_CASE("addings_2 matrixs")
     matrix_t first_matrix = matrix( first_matrix_representation );
     matrix_t second_matrix = matrix( second_matrix_representation );
     
-    matrix_t first_matrix += second_matrix;
+    first_matrix += second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
@@ -162,7 +156,7 @@ TEST_CASE("subtracting_2 matrixs")
     matrix_t first_matrix = matrix( first_matrix_representation );
     matrix_t second_matrix = matrix( second_matrix_representation );
     
-    matrix_t first_matrix -= second_matrix;
+    first_matrix -= second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
@@ -187,7 +181,7 @@ TEST_CASE("multiplying_2 matrixs")
     matrix_t first_matrix = matrix( first_matrix_representation );
     matrix_t second_matrix = matrix( second_matrix_representation );
     
-    matrix_t first_matrix *= second_matrix;
+    first_matrix *= second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 1\n"
