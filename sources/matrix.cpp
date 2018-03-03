@@ -110,9 +110,9 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 	matrix_t result;
 	
 	if (collumns_ == other.rows_) {
-  		result.elements_ = new float *[other.rows_];
+  		result.elements_ = new float *[rows_];
 		for (std::size_t i = 0; i<rows_; i++) {
-			result.elements_[i] = new float [collumns_];
+			result.elements_[i] = new float [other.collumns_];
 	    }
 	    result.rows_ = other.rows_;
 	    result.collumns_ = collumns_;
