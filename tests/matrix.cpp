@@ -29,7 +29,34 @@ TEST_CASE("reading matrix")
     
     REQUIRE( input == ostream.str() );
 }
-TEST_CASE("Add matrix")
+TEST_CASE("=")
+{
+	std::string input1{
+		"3, 3\n"
+		"1 1 1\n"
+		"1 1 1\n"
+		"1 1 1" };
+	std::string input2{
+		"3, 3\n"
+		"2 2 2\n"
+		"2 2 2\n"
+		"2 2 2" };
+	matrix_t matrix_1, matrix_2;
+
+	std::istringstream istream1{ input1 };
+	REQUIRE(matrix_1.read(istream1));
+
+	std::istringstream istream2{ input2 };
+	REQUIRE(matrix_2.read(istream2));
+
+	matrix_1 = matrix_2;
+	std::ostringstream ostream;
+	matrix_1.write(ostream);
+
+	REQUIRE(input2 == ostream.str());
+
+}
+TEST_CASE("Add")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -60,7 +87,7 @@ TEST_CASE("Add matrix")
 	REQUIRE(input == ostream.str());
 }
 
-TEST_CASE("Sub matrix")
+TEST_CASE("Sub")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -90,7 +117,7 @@ TEST_CASE("Sub matrix")
 
 	REQUIRE(input == ostream.str());
 }
-TEST_CASE("Mul matrix")
+TEST_CASE("Mul")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -121,7 +148,7 @@ TEST_CASE("Mul matrix")
 	REQUIRE(input == ostream.str());
 }
 
-TEST_CASE("Add2 matrix")
+TEST_CASE("+=")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -153,7 +180,7 @@ TEST_CASE("Add2 matrix")
 	REQUIRE(input == ostream.str());
 }
 
-TEST_CASE("Sub2 matrix")
+TEST_CASE("-=")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -185,7 +212,7 @@ TEST_CASE("Sub2 matrix")
 	REQUIRE(input == ostream.str());
 }
 
-TEST_CASE("Mul2 matrix")
+TEST_CASE("*=")
 {
 	std::string input_1{
 		"3, 3\n"
@@ -215,4 +242,30 @@ TEST_CASE("Mul2 matrix")
 	matrix_1.write(ostream);
 
 	REQUIRE(input == ostream.str());
+}
+TEST_CASE("=")
+{
+	std::string input1{
+		"3, 3\n"
+		"1 1 1\n"
+		"1 1 1\n"
+		"1 1 1" };
+	std::string input2{
+		"3, 3\n"
+		"2 2 2\n"
+		"2 2 2\n"
+		"2 2 2" };
+	matrix_t matrix_1, matrix_2;
+
+	std::istringstream istream1{ input1 };
+	REQUIRE(matrix_1.read(istream1));
+
+	std::istringstream istream2{ input2 };
+	REQUIRE(matrix_2.read(istream2));
+
+	matrix_1 = matrix_2;
+	std::ostringstream ostream;
+	matrix_1.write(ostream);
+
+	REQUIRE(input2 == ostream.str());
 }
